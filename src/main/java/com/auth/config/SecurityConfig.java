@@ -36,15 +36,15 @@ public class SecurityConfig {
 //        return new UserInfoUserDetailsService();
     }
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        return http.csrf().disable()
-//                .authorizeHttpRequests()
-//                .requestMatchers("/products/welcome", "/products/new").permitAll()
-//                .and()
-//                .authorizeHttpRequests().requestMatchers("/products/**")
-//                .authenticated().and().formLogin().and().build();
-//    }
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http.csrf().disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/products/welcome", "/products/new").permitAll()
+                .and()
+                .authorizeHttpRequests().requestMatchers("/products/**")
+                .authenticated().and().formLogin().and().build();
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
