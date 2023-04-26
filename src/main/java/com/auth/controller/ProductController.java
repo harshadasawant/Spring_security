@@ -1,6 +1,7 @@
 package com.auth.controller;
 
 import com.auth.dto.Product;
+import com.auth.entity.UserInfo;
 import com.auth.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -34,4 +35,11 @@ public class ProductController {
     public Product getProductById(@PathVariable int id) {
         return service.getProduct(id);
     }
+
+    @PostMapping("/new")
+    public String addNewUser(@RequestBody UserInfo userInfo){
+        return service.addUser(userInfo);
+    }
+
+
 }

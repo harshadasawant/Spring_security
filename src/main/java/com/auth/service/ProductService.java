@@ -2,6 +2,8 @@ package com.auth.service;
 
 
 import com.auth.dto.Product;
+import com.auth.entity.UserInfo;
+import com.auth.repository.UserInfoRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,8 +19,8 @@ public class ProductService {
 
     List<Product> productList = null;
 
-//    @Autowired
-//    private UserInfoRepository repository;
+    @Autowired
+    private UserInfoRepository repository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -47,9 +49,9 @@ public class ProductService {
     }
 
 
-//    public String addUser(UserInfo userInfo) {
-//        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
-//        repository.save(userInfo);
-//        return "user added to system ";
-//    }
+    public String addUser(UserInfo userInfo) {
+        userInfo.setPassword(passwordEncoder.encode(userInfo.getPassword()));
+        repository.save(userInfo);
+        return "user added to system ";
+    }
 }
