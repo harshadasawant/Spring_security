@@ -79,3 +79,10 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 }
+
+/*
+
+http--->gmail.com --> username and pass-> harshada,harshada ------------------>server
+https----> gmail.com --> username and pass->(harshada,harshada)--> encryption algo sslcertificate-------------------------------->server
+create SSLcertificate -> by using keytool command
+        keytool -genkeypair -alias harshada -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore harshada.p12 -validity 3650*/
